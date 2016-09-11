@@ -1,0 +1,16 @@
+apply plugin: "java"
+
+repositories{
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'com.wool'
+version = '1.0'
+description = 'Hermes system'
+
+dependencies{
+	testCompile "junit:junit:4.11"
+}
