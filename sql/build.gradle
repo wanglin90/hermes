@@ -1,0 +1,30 @@
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath "com.googlecode.flyway:flyway-gradle-plugin:2.2"
+		classpath "mysql:mysql-connector-java:5.1.25"
+	}
+}
+
+apply plugin: "flyway"
+apply plugin: "java"
+
+flyway{
+	user = 'wool'
+	password = 'wool'
+	schemas = ['wool']
+	driver = 'com.mysql.jdbc.Driver'
+	url = 'jdbc:mysql://127.0.0.1:3306/wool?useUnicode=true&amp;characterEncoding=utf-8'
+	locations = ['sql/migrations']
+}
+
+repositories{
+	mavenCentral()
+}
+
+dependencies{
+	testCompile "junit:junit:4.11"
+}
