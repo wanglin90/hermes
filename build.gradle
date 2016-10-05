@@ -58,7 +58,7 @@ dependencies{
 	compile "mysql:mysql-connector-java:5.1.37"
 
 	//// database connection pool ////
-//	compile "com.zaxxer.HikariCP:2.4.1"
+	compile "com.zaxxer:HikariCP:2.4.1"
 
 	//// mybatis ////
 	compile "org.mybatis:mybatis:3.3.0"
