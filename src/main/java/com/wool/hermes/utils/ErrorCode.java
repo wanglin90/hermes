@@ -15,7 +15,7 @@ public class ErrorCode {
 
     private static final Logger log = LoggerFactory.getLogger(ErrorCode.class);
 
-    private static final String ERROR_MSG_FORMAT = "error.msg.%d";
+    private static final String ERROR_MSG_FORMAT = "error.message.%d";
 
     private static AbstractMessageSource messageSource = null;
 
