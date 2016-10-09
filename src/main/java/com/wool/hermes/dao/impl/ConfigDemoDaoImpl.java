@@ -38,4 +38,14 @@ public class ConfigDemoDaoImpl implements ConfigDemoDao {
     public List<ConfigDemo> selectByExample(ConfigDemoExample example) {
         return configDemoMapper.selectByExample(example);
     }
+
+    @Override
+    public int countByExample(ConfigDemoExample example) {
+        return configDemoMapper.countByExample(example);
+    }
+
+    @Override
+    public List<ConfigDemo> selectByExampleWithLimit(ConfigDemoExample example) {
+        return configDemoMapper.selectByExampleWithLimit(example);
+    }
 }

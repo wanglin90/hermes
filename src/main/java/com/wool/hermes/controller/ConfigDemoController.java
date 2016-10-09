@@ -28,6 +28,12 @@ public class ConfigDemoController {
     @Autowired
     private ConfigDemoService configDemoService;
 
+    /**
+     * 列表查询
+     * 如果需要分页， offset 和 limit 必传
+     * @param req
+     * @return
+     */
     @RequestMapping(value = "/config/demo/list",method = RequestMethod.POST,produces = "application/json;charset=utf-8")
     public WoolResponse getConfigDemoList(@RequestBody ConfigDemoReq req) {
 
@@ -39,12 +45,12 @@ public class ConfigDemoController {
         }
 
         try {
-            response = configDemoService.getConfigDemoList();
+            response = configDemoService.getConfigDemoList(req);
         } catch (Exception e) {
             log.error("==> getConfigDemoList error , error = {}",e);
             response = Utils.getErrorResponse(ErrorCode.SYS_ERROR, messageSource);
         }
 
-        return null;
+        return response;
     }
 }

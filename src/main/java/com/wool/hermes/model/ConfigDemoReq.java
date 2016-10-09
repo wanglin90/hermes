@@ -7,6 +7,8 @@ public class ConfigDemoReq {
 
     private String name;
     private Integer age;
+    private Integer offset;
+    private Integer limit;
 
     public String getName() {
         return name;
@@ -24,11 +26,29 @@ public class ConfigDemoReq {
         this.age = age;
     }
 
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
     @Override
     public String toString() {
         return "ConfigDemoReq{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", offset=" + offset +
+                ", limit=" + limit +
                 '}';
     }
 }

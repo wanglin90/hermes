@@ -8,5 +8,6 @@ import com.wool.hermes.model.WoolResponse;
  */
 public interface ConfigDemoService {
 
-    WoolResponse getConfigDemoList();
+    WoolResponse getConfigDemoList(ConfigDemoReq req);
+
 }

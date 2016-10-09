@@ -27,18 +27,19 @@ public class ConfigDemoServiceImpl implements ConfigDemoService {
     @Autowired
     private ConfigDemoDao configDemoDao;
 
-
     @Override
-    public WoolResponse getConfigDemoList() {
+    public WoolResponse getConfigDemoList(ConfigDemoReq req) {
 
         WoolResponse response = null;
         ConfigDemoResp resp = new ConfigDemoResp();
         List<ConfigDemoResp.WoolConfigDemo> list = new ArrayList<>();
 
-        ConfigDemoExample example = new ConfigDemoExample();
-        List<ConfigDemo> configDemos = configDemoDao.selectByExample(example);
+        ConfigDemoExample example = getExample(req);
 
-        if (!CollectionUtils.isEmpty(configDemos)) {
+        int totalNum = configDemoDao.countByExample(example);
+
+        if (totalNum > 0) {
+            List<ConfigDemo> configDemos = configDemoDao.selectByExampleWithLimit(example);
             for (ConfigDemo configDemo : configDemos) {
                 ConfigDemoResp.WoolConfigDemo woolConfigDemo = new ConfigDemoResp.WoolConfigDemo();
                 woolConfigDemo.setName(configDemo.getName());
@@ -47,10 +48,33 @@ public class ConfigDemoServiceImpl implements ConfigDemoService {
             }
         }
 
-        resp.setTotalNum(configDemos.size());
+
+        resp.setTotalNum(totalNum);
         resp.setList(list);
 
-        response = Utils.getRightResponse("success",resp);
+        response = Utils.getRightResponse("success", resp);
         return response;
+    }
+
+    private ConfigDemoExample getExample(ConfigDemoReq req) {
+
+        ConfigDemoExample example = new ConfigDemoExample();
+        example.setOrderByClause("create_time desc");
+
+        if (req.getOffset() != null && req.getLimit() != null) {
+            example.setLimitClause(req.getOffset(),req.getLimit());
+        }
+
+        ConfigDemoExample.Criteria criteria = example.createCriteria();
+
+        if (!StringUtils.isEmpty(req.getName())) {
+            criteria.andNameEqualTo(req.getName());
+        }
+
+        if (req.getAge() != null) {
+            criteria.andAgeEqualTo(req.getAge());
+        }
+
+        return example;
     }
 }

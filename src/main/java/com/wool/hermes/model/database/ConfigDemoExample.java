@@ -609,4 +609,14 @@ public class ConfigDemoExample {
             this(condition, value, secondValue, null);
         }
     }
+
+    private String limitClause;
+
+    public String getLimitClause() {
+        return limitClause;
+    }
+
+    public void setLimitClause(int offset, int limit) {
+        this.limitClause = offset+", "+limit;
+    }
 }

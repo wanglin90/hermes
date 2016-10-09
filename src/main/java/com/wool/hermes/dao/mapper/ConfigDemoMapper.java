@@ -93,4 +93,6 @@ public interface ConfigDemoMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(ConfigDemo record);
+
+    List<ConfigDemo> selectByExampleWithLimit(ConfigDemoExample example);
 }
