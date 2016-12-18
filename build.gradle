@@ -54,14 +54,11 @@ dependencies{
 	compile "org.springframework.data:spring-data-redis:1.6.0.RELEASE"
 	compile "redis.clients:jedis:2.7.3"
 
-	//// mysql ////
+	//// mysql,database connection pool,mybatis ////
 	compile "mysql:mysql-connector-java:5.1.37"
-
-	//// database connection pool ////
 	compile "com.zaxxer:HikariCP:2.4.1"
-
-	//// mybatis ////
 	compile "org.mybatis:mybatis:3.3.0"
+	compile "org.mybatis:mybatis-spring:1.2.3"
 
 	//// logback ////
 	compile "ch.qos.logback:logback-core:1.1.3"
@@ -71,11 +68,22 @@ dependencies{
 	//// utility , such as json , etc ////
 	compile "com.google.code.gson:gson:2.3.1"
 
-	//// servlet ////
+	//// servlet and runtime dependencies ////
 	compile "javax.servlet:jstl:1.2"
 	providedCompile "javax.servlet:javax.servlet-api:3.1.0"
 	providedRuntime "org.springframework.boot:spring-boot-starter-tomcat:1.2.7.RELEASE"
 
-	//// test dependencies ////
+	//// test support ////
 	testCompile "junit:junit:4.11"
+	testCompile "org.springframework:spring-test:${springVersion}"
+
+	//// cas ////
+	compile "org.jasig.cas.client:cas-client-core:3.2.1"
+	compile "org.apache.shiro:shiro-web:1.2.4"
+	compile "org.apache.shiro:shiro-spring:1.2.4"
+	compile "org.apache.shiro:shiro-ehcache:1.2.4"
+	compile "org.apache.shiro:shiro-cas:1.2.4"
+
+	//// thymeleaf with shiro////
+	compile "com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1"
 }

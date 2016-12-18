@@ -19,7 +19,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @SpringBootApplication
 @Configuration
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
-@EnableCaching
 @ImportResource({"classpath*:spring/spring.xml"})
 public class Application extends SpringBootServletInitializer {
 
