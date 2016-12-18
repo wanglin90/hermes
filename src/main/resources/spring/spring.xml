@@ -14,11 +14,12 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task.xsd">
 
+    <!-- load properties -->
     <context:property-placeholder ignore-resource-not-found="true" ignore-unresolvable="false" file-encoding="UTF-8"
             location="classpath*:properties/ds.properties,file:/data/config/wool/prod.properties"
             system-properties-mode="ENVIRONMENT"/>
 
-    <!-- configure the thread pool of scheduler and async, same as @EnableAysnc and @EnableScheduling -->
+    <!-- task executor and scheduler -->
     <task:annotation-driven executor="woolExecutor" scheduler="woolScheduler"/>
     <task:executor id="woolExecutor"  pool-size="5-50" queue-capacity="100" rejection-policy="CALLER_RUNS"/>
     <task:scheduler id="woolScheduler" pool-size="20"/>
