@@ -52,5 +52,7 @@
 
     <!-- import resources -->
     <import resource="ds.xml" />
+    <import resource="rabbit.xml"/>
+    <import resource="redis.xml"/>
 
 </beans>

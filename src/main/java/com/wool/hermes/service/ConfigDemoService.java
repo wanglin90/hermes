@@ -2,6 +2,7 @@ package com.wool.hermes.service;
 
 import com.wool.hermes.model.ConfigDemoReq;
 import com.wool.hermes.model.WoolResponse;
+import org.springframework.amqp.core.Message;
 
 /**
  * Created by wanglin on 16-10-7.
@@ -9,5 +10,9 @@ import com.wool.hermes.model.WoolResponse;
 public interface ConfigDemoService {
 
     WoolResponse getConfigDemoList(ConfigDemoReq req);
+
+    void handMessage(Message message);
+
+    void sendMessage(String message);
 
 }
