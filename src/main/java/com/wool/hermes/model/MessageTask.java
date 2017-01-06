@@ -80,6 +80,6 @@ public class MessageTask {
     }
 
     public String toString() {
-        return String.format("<MessageTask: %s, %s, '%s'>", id, cmd, payload);
+        return String.format("<MessageHandler: %s, %s, '%s'>", id, cmd, payload);
     }
 }

@@ -68,13 +68,6 @@ public class ConfigDemoServiceImpl implements ConfigDemoService {
     }
 
     @Override
-    @RabbitListener(queues = "test.aa")
-    public void handMessage(Message message) {
-        MessageTask msg = MessageTask.fromAmqpMessage(message);
-        log.info("receive message: {}", msg.getPayload());
-    }
-
-    @Override
     public void sendMessage(String message) {
         MessageTask msg = new MessageTask(message);
         rabbitTemplate.send("hermes_test","aa",msg.toAmqpMessage());
