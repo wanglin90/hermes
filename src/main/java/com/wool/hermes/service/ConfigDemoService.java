@@ -11,8 +11,6 @@ public interface ConfigDemoService {
 
     WoolResponse getConfigDemoList(ConfigDemoReq req);
 
-    void handMessage(Message message);
-
     void sendMessage(String message);
 
 }
