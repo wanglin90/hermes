@@ -77,7 +77,7 @@ public class ConfigDemoServiceImpl implements ConfigDemoService {
     @Override
     public void sendMessage(String message) {
         MessageTask msg = new MessageTask(message);
-        rabbitTemplate.send(msg.toAmqpMessage());
+        rabbitTemplate.send("hermes_test","aa",msg.toAmqpMessage());
     }
 
     private ConfigDemoExample getExample(ConfigDemoReq req) {
