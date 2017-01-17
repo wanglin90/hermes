@@ -86,4 +86,10 @@ dependencies{
 
 	//// thymeleaf with shiro////
 	compile "com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1"
+
+	//// alibaba dubbo ////
+	compile("com.alibaba:dubbo:2.5.3"){
+		exclude (group:"org.springframework")
+		exclude (group:"log4j")
+	}
 }
