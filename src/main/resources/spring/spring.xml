@@ -21,20 +21,20 @@
 
     <!-- task executor and scheduler -->
     <task:annotation-driven executor="woolExecutor" scheduler="woolScheduler"/>
-    <task:executor id="woolExecutor"  pool-size="5-50" queue-capacity="100" rejection-policy="CALLER_RUNS"/>
+    <!--<task:executor id="woolExecutor"  pool-size="5-50" queue-capacity="100" rejection-policy="CALLER_RUNS"/>
     <task:scheduler id="woolScheduler" pool-size="20"/>
 
-    <!-- Thread Pool -->
+    &lt;!&ndash; Thread Pool &ndash;&gt;
     <bean id ="woolExecutor"  class ="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" >
-        <!-- core size -->
+        &lt;!&ndash; core size &ndash;&gt;
         <property name ="corePoolSize" value ="5" />
-        <!-- idle time -->
+        &lt;!&ndash; idle time &ndash;&gt;
         <property name ="keepAliveSeconds" value ="30000" />
-        <!-- max size -->
+        &lt;!&ndash; max size &ndash;&gt;
         <property name ="maxPoolSize" value ="20" />
-        <!-- queue size -->
+        &lt;!&ndash; queue size &ndash;&gt;
         <property name ="queueCapacity" value ="200" />
-    </bean>
+    </bean>-->
 
     <!-- scanner -->
     <context:annotation-config />
